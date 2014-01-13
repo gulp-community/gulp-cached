@@ -31,15 +31,19 @@ gulp.task('lint', function(){
 });
 ```
 
-### cache(cacheName)
+### cache(cacheName[, opt])
 
 Creates a new cache hash or uses an existing one.
 
 Cache key = file.path + file.contents
 
 If a file exists in the cache, it is ignored.
+
 If a file doesn't exist in the cache, it is passed through as is and added to the cache.
 
+#### Possible options
+
+`optimizeMemory` - Uses md5 instead of storing the whole file contents. Better if you are worried about large files and their effect on memory consumption. Default is `false`
 
 ### Clearing the cache
 
