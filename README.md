@@ -41,6 +41,8 @@ If a file exists in the cache, it is ignored.
 
 If a file doesn't exist in the cache, it is passed through as is and added to the cache.
 
+The last cache for this path is cleared so if you modify a file to a, then to b, then back to a all 3 will be a cache miss.
+
 #### Possible options
 
 `optimizeMemory` - Uses md5 instead of storing the whole file contents. Better if you are worried about large files and their effect on memory consumption. Default is `false`
