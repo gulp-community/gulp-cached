@@ -1,0 +1,30 @@
+{
+  "name": "gulp-cached",
+  "description": "A simple in-memory file cache for gulp",
+  "version": "0.0.1",
+  "homepage": "http://github.com/wearefractal/gulp-cached",
+  "repository": "git://github.com/wearefractal/gulp-cached.git",
+  "author": "Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
+  "main": "./index.js",
+  "dependencies": {
+    "through2": "~0.4.0",
+    "lodash.defaults": "~2.4.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "gulp-util": "~2.2.9"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">= 0.9.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/wearefractal/gulp-cached/raw/master/LICENSE"
+    }
+  ]
+}
