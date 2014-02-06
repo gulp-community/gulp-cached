@@ -45,7 +45,7 @@ The last cache for this path is cleared so if you modify a file to a, then to b,
 
 #### Possible options
 
-`optimizeMemory` - Uses md5 instead of storing the whole file contents. Better if you are worried about large files and their effect on memory consumption. Default is `false`
+`optimizeMemory` - Uses md5 instead of storing the whole file contents. Better if you are worried about large files and their effect on memory consumption. Default is `false`. In my experience this doesn't make much of a difference (only 25mb vs 26mb) but with a lot of files or a few large files this could be a big deal.
 
 ### Clearing the cache
 
