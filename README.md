@@ -20,16 +20,40 @@
 
 ## Usage
 
+This keeps an in-memory cache of files (and their contents) that have passed through it. If a file has already passed through on the last run it will not be passed downstream. This means you only process what you need and save time + resources.
+
+Take this example:
+
 ```javascript
 var cache = require('gulp-cached');
 
 gulp.task('lint', function(){
-  return gulp.src("files/*.js")
+  return gulp.src('files/*.js')
     .pipe(cache('linting'))
     .pipe(jshint())
     .pipe(jshint.reporter())
 });
+
+gulp.task('watch', function(){
+  gulp.watch('files/*.js', ['lint']);
+});
+
+gulp.task('default', ['watch','lint']);
 ```
+
+- User saves `files/a.js` and the `lint` task is called
+  - the files do not exist in the cache yet
+  - `files/a.js` and `files/b.js` are linted
+- User saves `files/b.js` and the `lint` task is called
+  - the contents of the file changed from the previous value
+  - `files/b.js` is linted
+- User saves `files/a.js` and the `lint` task is called
+  - the contents of the file have not changed from the previous value
+  - nothing is linted
+
+So the first run will emit all of the items downstream. Runs after that will only emit if it has been changed from the last file that passed through it with the same path.
+
+Please note that this will not work with plugins that operate on sets of files (concat for example).
 
 ### cache(cacheName[, opt])
 
