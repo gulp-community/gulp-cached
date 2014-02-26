@@ -1,6 +1,4 @@
 var crypto = require('crypto');
-var gutil = require('gulp-util');
-var PluginError = require('gulp-util').PluginError;
 var defaults = require('lodash.defaults');
 var through = require('through2');
 
