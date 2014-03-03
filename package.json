@@ -1,7 +1,7 @@
 {
   "name": "gulp-cached",
   "description": "A simple in-memory file cache for gulp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "http://github.com/wearefractal/gulp-cached",
   "repository": {
     "type": "git",
