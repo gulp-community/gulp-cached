@@ -3,7 +3,10 @@
   "description": "A simple in-memory file cache for gulp",
   "version": "0.0.2",
   "homepage": "http://github.com/wearefractal/gulp-cached",
-  "repository": "git://github.com/wearefractal/gulp-cached.git",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wearefractal/gulp-cached.git"
+  },
   "author": "Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
   "main": "./index.js",
   "dependencies": {
@@ -26,5 +29,8 @@
       "type": "MIT",
       "url": "http://github.com/wearefractal/gulp-cached/raw/master/LICENSE"
     }
+  ],
+  "keywords": [
+    "gulpplugin"
   ]
 }
