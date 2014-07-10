@@ -12,12 +12,7 @@ var plugin = function(name, opt){
   }
 
   var stream = through.obj(function(file, enc, callback){
-    if (!file.isBuffer()) {
-      this.push(file);
-      return callback();
-    }
-
-    var contents = file.contents.toString('utf8');
+    var contents = file.isBuffer() ? file.contents.toString('utf8') : null;
 
     // slower for each file
     // but good if you need to save on memory
