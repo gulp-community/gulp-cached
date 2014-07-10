@@ -12,18 +12,26 @@ var plugin = function(name, opt){
   }
 
   var stream = through.obj(function(file, enc, callback){
-    var contents = file.isBuffer() ? file.contents.toString('utf8') : null;
+    var contents = null;
 
-    // slower for each file
-    // but good if you need to save on memory
-    if (opts.optimizeMemory) {
-      contents = crypto.createHash('md5').update(contents).digest('hex');
+    if (file.isStream()) {
+      this.push(file);
+      return callback();
+    }
+    if (file.isBuffer()) {
+      contents = file.contents.toString('utf8');
+
+      // slower for each file
+      // but good if you need to save on memory
+      if (opts.optimizeMemory) {
+        contents = crypto.createHash('md5').update(contents).digest('hex');
+      }
     }
 
     var cacheFile = plugin.caches[name][file.path];
 
     // hit - ignore it
-    if (cacheFile && cacheFile === contents) {
+    if (typeof cacheFile !== 'undefined' && cacheFile === contents) {
       callback();
       return;
     }

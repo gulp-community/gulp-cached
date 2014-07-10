@@ -1,6 +1,7 @@
 var cache = require('../');
 var should = require('should');
 var gutil = require('gulp-util');
+var through = require('through2');
 var PassThrough = require('stream').PassThrough;
 require('mocha');
 
@@ -105,10 +106,10 @@ describe('gulp-cached', function() {
     stream.end();
   });
 
-  it('should create a cache that allows a null file through always', function(done) {
+  it('should create a cache that allows a stream file through always', function(done) {
     var file = new gutil.File({
       path: "/home/file.js",
-      contents: null
+      contents: through()
     });
     var stream = cache('testilo');
     var count = 0;
