@@ -5,7 +5,7 @@
 ## Information
 
 <table>
-<tr> 
+<tr>
 <td>Package</td><td>gulp-cached</td>
 </tr>
 <tr>
@@ -89,7 +89,7 @@ delete cache.caches['cache name yo'];
 
 (MIT License)
 
-Copyright (c) 2014 Fractal <contact@wearefractal.com>
+Copyright (c) 2015 Fractal <contact@wearefractal.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
