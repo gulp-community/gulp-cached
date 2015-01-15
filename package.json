@@ -10,13 +10,13 @@
   "author": "Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
   "main": "./index.js",
   "dependencies": {
-    "through2": "^0.5.0",
-    "lodash.defaults": "^2.4.1"
+    "lodash.defaults": "^2.4.1",
+    "through2": "^0.5.1"
   },
   "devDependencies": {
+    "gulp-util": "^3.0.2",
     "mocha": "*",
-    "should": "*",
-    "gulp-util": "~2.2.9"
+    "should": "*"
   },
   "scripts": {
     "test": "mocha"
