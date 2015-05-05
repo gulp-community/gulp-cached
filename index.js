@@ -12,19 +12,21 @@ var plugin = function(name, opt){
   }
 
   var stream = through.obj(function(file, enc, callback){
-    var contents = null;
+    var contents = file.checksum;
 
-    if (file.isStream()) {
-      this.push(file);
-      return callback();
-    }
-    if (file.isBuffer()) {
-      contents = file.contents.toString('utf8');
+    if (!contents) {
+      if (file.isStream()) {
+        this.push(file);
+        return callback();
+      }
+      if (file.isBuffer()) {
+        contents = file.contents.toString('utf8');
 
-      // slower for each file
-      // but good if you need to save on memory
-      if (opts.optimizeMemory) {
-        contents = crypto.createHash('md5').update(contents).digest('hex');
+        // slower for each file
+        // but good if you need to save on memory
+        if (opts.optimizeMemory) {
+          contents = crypto.createHash('md5').update(contents).digest('hex');
+        }
       }
     }
 

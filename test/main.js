@@ -151,4 +151,28 @@ describe('gulp-cached', function() {
     stream.write(file);
     stream.end();
   });
+
+  it('should create a cache that only allows a hashed streaming file through once', function(done) {
+    var file = new gutil.File({
+      path: "/home/file.js",
+      contents: new PassThrough()
+    });
+    file.checksum = 'deadbeef';
+    var stream = cache('testyeah');
+    var count = 0;
+    stream.on('data', function(nfile){
+      count++;
+      nfile.path.should.equal(file.path);
+    });
+    stream.on('end', function(){
+      count.should.equal(1);
+      done();
+    });
+    stream.write(file);
+    stream.write(file);
+    stream.write(file);
+    stream.write(file);
+    stream.write(file);
+    stream.end();
+  });
 });
