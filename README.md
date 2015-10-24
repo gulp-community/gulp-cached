@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/wearefractal/gulp-cached.png?branch=master)](https://travis-ci.org/wearefractal/gulp-cached)
+[![Build Status](https://travis-ci.org/contra/gulp-cached.png?branch=master)](https://travis-ci.org/contra/gulp-cached)
 
 [![NPM version](https://badge.fury.io/js/gulp-cached.png)](http://badge.fury.io/js/gulp-cached)
 
