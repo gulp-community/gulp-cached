@@ -1,13 +1,13 @@
 var cache = require('../');
 var should = require('should');
-var gutil = require('gulp-util');
+var File = require('vinyl');
 var through = require('through2');
 var PassThrough = require('stream').PassThrough;
 require('mocha');
 
 describe('gulp-cached', function() {
   it('should create a cache that only allows a file through once', function(done) {
-    var file = new gutil.File({
+    var file = new File({
       path: "/home/file.js",
       contents: new Buffer("damn")
     });
@@ -25,11 +25,11 @@ describe('gulp-cached', function() {
   });
 
   it('should create a cache that clears content when reset', function(done) {
-    var file = new gutil.File({
+    var file = new File({
       path: "/home/file.js",
       contents: new Buffer("damn")
     });
-    var file2 = new gutil.File({
+    var file2 = new File({
       path: "/home/file.js",
       contents: new Buffer("damnit")
     });
@@ -69,7 +69,7 @@ describe('gulp-cached', function() {
 
 
   it('should create separate caches that only allow a file through once each', function(done) {
-    var file = new gutil.File({
+    var file = new File({
       path: "/home/file.js",
       contents: new Buffer("damn")
     });
@@ -107,7 +107,7 @@ describe('gulp-cached', function() {
   });
 
   it('should create a cache that allows a stream file through always', function(done) {
-    var file = new gutil.File({
+    var file = new File({
       path: "/home/file.js",
       contents: through()
     });
@@ -130,7 +130,7 @@ describe('gulp-cached', function() {
   });
 
   it('should create a cache that allows a streaming file through always', function(done) {
-    var file = new gutil.File({
+    var file = new File({
       path: "/home/file.js",
       contents: new PassThrough()
     });
@@ -153,7 +153,7 @@ describe('gulp-cached', function() {
   });
 
   it('should create a cache that only allows a hashed streaming file through once', function(done) {
-    var file = new gutil.File({
+    var file = new File({
       path: "/home/file.js",
       contents: new PassThrough()
     });

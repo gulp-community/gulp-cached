@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/wearefractal/gulp-cached.png?branch=master)](https://travis-ci.org/wearefractal/gulp-cached)
+[![Build Status](https://travis-ci.org/contra/gulp-cached.png?branch=master)](https://travis-ci.org/contra/gulp-cached)
 
 [![NPM version](https://badge.fury.io/js/gulp-cached.png)](http://badge.fury.io/js/gulp-cached)
 
@@ -89,7 +89,7 @@ delete cache.caches['cache name yo'];
 
 (MIT License)
 
-Copyright (c) 2015 Fractal <contact@wearefractal.com>
+Copyright (c) 2015 Fractal <contact@contra.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

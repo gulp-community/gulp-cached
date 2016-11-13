@@ -2,21 +2,21 @@
   "name": "gulp-cached",
   "description": "A simple in-memory file cache for gulp",
   "version": "1.1.0",
-  "homepage": "http://github.com/wearefractal/gulp-cached",
+  "homepage": "http://github.com/contra/gulp-cached",
   "repository": {
     "type": "git",
-    "url": "git://github.com/wearefractal/gulp-cached.git"
+    "url": "git://github.com/contra/gulp-cached.git"
   },
-  "author": "Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
+  "author": "Contra <yo@contra.io> (http://contra.io/)",
   "main": "./index.js",
   "dependencies": {
-    "lodash.defaults": "^2.4.1",
-    "through2": "^0.5.1"
+    "lodash.defaults": "^4.2.0",
+    "through2": "^2.0.1"
   },
   "devDependencies": {
-    "gulp-util": "^3.0.2",
-    "mocha": "^2.2.1",
-    "should": "^5.1.0"
+    "mocha": "^3.0.0",
+    "should": "^11.0.0",
+    "vinyl": "^2.0.0"
   },
   "scripts": {
     "test": "mocha"
@@ -27,7 +27,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/wearefractal/gulp-cached/raw/master/LICENSE"
+      "url": "http://github.com/contra/gulp-cached/raw/master/LICENSE"
     }
   ],
   "keywords": [
