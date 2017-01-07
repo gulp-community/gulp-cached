@@ -4,7 +4,8 @@ var through = require('through2');
 
 var plugin = function(name, opt){
   var opts = defaults(opt || {}, {
-    optimizeMemory: false
+    optimizeMemory: false,
+    unpipeOnCache: false
   });
 
   if (!plugin.caches[name]) {
@@ -34,8 +35,11 @@ var plugin = function(name, opt){
 
     // hit - ignore it
     if (typeof cacheFile !== 'undefined' && cacheFile === contents) {
-      callback();
-      return;
+      if (!opts.unpipeOnCache) {
+        this.unpipe();
+        callback(null, null);
+        return;
+      } else returncallback();
     }
 
     // miss - add it and pass it through
