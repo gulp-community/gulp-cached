@@ -3,6 +3,7 @@ var defaults = require('lodash.defaults');
 var through = require('through2');
 
 var plugin = function(name, opt){
+
   var opts = defaults(opt || {}, {
     optimizeMemory: false,
     unpipeOnCache: false
@@ -35,11 +36,11 @@ var plugin = function(name, opt){
 
     // hit - ignore it
     if (typeof cacheFile !== 'undefined' && cacheFile === contents) {
-      if (!opts.unpipeOnCache) {
+      if (opts.unpipeOnCache) {
         this.unpipe();
         callback(null, null);
         return;
-      } else returncallback();
+      } else return callback();
     }
 
     // miss - add it and pass it through
